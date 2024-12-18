@@ -2,7 +2,7 @@ import os
 import dotenv
 import pandas as pd
 
-from youtube_api import YouTubeAPI
+from youtube.youtube_api import YouTubeAPI
 
 dotenv.load_dotenv()
 
