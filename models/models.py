@@ -5,7 +5,7 @@ import numpy as np
 class Thumbnail(BaseModel):
     url: str
     pixels: np.ndarray = None
-    hue: int = None
+    hue: float = None
     saturation: float = None
     lightness: float = None
     face_present: bool = False
