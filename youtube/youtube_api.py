@@ -52,17 +52,24 @@ class YouTubeAPI:
         return df
     
     
-    def get_kwvids(self, keywords, limit=100):
+    def get_kwvids(self, keywords, category, limit=100):
         next_page_token = None
         video_ids = []
         while len(video_ids) < limit:
-            request = self.youtube.search().list(
-                part="snippet",
-                q=','.join(keywords),
-                type="video",
-                maxResults=50 if limit > 50 else limit,
-                pageToken=next_page_token if next_page_token else None
-            )
+            params = {
+                "part": "snippet",
+                "type": "video",
+                "maxResults": 50 if limit > 50 else limit,
+                "pageToken": next_page_token if next_page_token else None
+            }
+
+            if keywords:
+                params["q"] = keywords
+            
+            if category:
+                params["videoCategoryId"] = str(category)
+
+            request = self.youtube.search().list(**params)
             response = request.execute()
             next_page_token = response.get('nextPageToken', None)
             for item in response['items']:
@@ -83,7 +90,7 @@ class YouTubeAPI:
             response = request.execute()
             for video in response['items']:
                 keepstats={'snippet':['channelTitle','title','description','tags','publishedAt'],
-                    'statistics':['viewCount','likeCount','commentCount'],
+                    'statistics':['viewCount','likeCount','commentCount','subscriberCount'],
                     'contentDetails':['duration','definition','caption']
                     }
                 video_info={}
@@ -94,7 +101,7 @@ class YouTubeAPI:
                             video_info[v]=video[k][v]
                         except:
                             video_info[v]=None
-                        
+                video_info["thumbnail-url"] = video["snippet"]["thumbnails"]["high"]["url"]
                 all_info.append(video_info)
         return (pd.DataFrame(all_info))
     
@@ -108,17 +115,12 @@ class YouTubeAPI:
         return df
 
 
-    def search_by_keywords(self, keywords, limit=100):
+    def search_request(self, keywords, category, limit=100):
 
         result = RESULT_TEMPLATE.copy()
 
-        keywords = [keyword for keyword in keywords if keyword]
-        if len(keywords) == 0:
-            result['warning'] = "No keywords provided."
-            return result
-        
         try:
-            video_ids = self.get_keyword_video_ids(keywords, limit)
+            video_ids = self.get_keyword_video_ids(keywords, category, limit)
             result["video_df"] = self.get_video_details(video_ids)
         except HttpError as e:
             result["ok"] = False

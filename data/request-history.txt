@@ -1,0 +1,3 @@
+soccer-no-category.csv,    keywords: soccer,    categoryFilter: ,    numberOfResults: 20
+travel-no-keywords.csv,    keywords: ,    categoryFilter: 19,    numberOfResults: 20
+uni-tuebingen-news.csv,    keywords: uni tuebingen,    categoryFilter: 25,    numberOfResults: 20

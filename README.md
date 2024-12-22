@@ -24,6 +24,26 @@ pip install -r requirements.txt
 
 - Run `main.py` and follow the instructions to obtain the top YouTube search results for the specified request.
 
+## Common YouTube video category IDs
+
+| **Category**            | **ID** |
+|-------------------------|------:|
+| Film & Animation        |      1 |
+| Autos & Vehicles        |      2 |
+| Music                   |     10 |
+| Pets & Animals          |     15 |
+| Sports                  |     17 |
+| Travel & Events         |     19 |
+| Gaming                  |     20 |
+| People & Blogs          |     22 |
+| Comedy                  |     23 |
+| Entertainment           |     24 |
+| News & Politics         |     25 |
+| How-to & Style          |     26 |
+| Education               |     27 |
+| Science & Technology    |     28 |
+| Nonprofits & Activism   |     29 |
+
 ## Utility functions
 
 To load an image:
