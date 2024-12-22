@@ -6,15 +6,23 @@ Uses the YouTube API to analyze statistics of YouTube videos.
 
 ## How to access the API
 
-- Get an api key from the <a href="https://console.cloud.google.com/">Google Cloud Console</a>.
+- Get an API key from the <a href="https://console.cloud.google.com/">Google Cloud Console</a> by enabling the YouTube Data API v3.
 
-- Enable the YouTube Data API v3.
+- Clone the repositiory.
 
 ```
 git clone origin https://github.com/chaseleantj/Project_TuebingenDL_WS24_25
 ```
 
-In `main.py`, specify a list of `keywords` and `num_results` to find the top search results for the specified keywords in YouTube search.
+- Install the requirements.
+
+```
+pip install -r requirements.txt
+```
+
+- Create a `.env` file in the root directory and store your API key there. See `.env_example`.
+
+- Run `main.py` and follow the instructions to obtain the top YouTube search results for the specified request.
 
 ## Utility functions
 
