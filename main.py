@@ -48,16 +48,17 @@ while True:
         print("Please enter a valid integer between 1 and 10000!")
 
 output_csv = input("Name of output .csv file (existing ones will be overwritten): ") + ".csv"
-output_path = os.path.join("data", output_csv)
+output_path = os.path.join("data", "requests", output_csv)
 
 client = YouTubeAPI(api_key=os.getenv("GOOGLE_API_KEY"))
 result = client.search_request(keywords, category, limit=num_results)
-
 result_df = result["video_df"]
+if result_df.empty:
+    raise RuntimeError(result["error"])
 result_df = result_df.drop(["caption", "description"], axis=1)
 result_df.to_csv(output_path)
 
-with open(os.path.join("data", "request-history.txt"), 'a') as file:
+with open(os.path.join("data", "requests", "request-history.txt"), 'a') as file:
     file.write(output_csv + ",    keywords: " + keywords + ",    categoryFilter: " + str(category) + ",    numberOfResults: " + str(num_results) + "\n")
 
 print("Results successfully saved to", output_path)

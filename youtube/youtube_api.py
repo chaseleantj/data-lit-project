@@ -5,6 +5,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from joblib import Memory
 from joblib.memory import expires_after
+import datetime
+import math
 
 
 cachedir = './cache'
@@ -55,27 +57,63 @@ class YouTubeAPI:
     def get_kwvids(self, keywords, category, limit=100):
         next_page_token = None
         video_ids = []
-        while len(video_ids) < limit:
+
+        # do multiple queries with different date filters for larger requests due to the limited page token count
+        max_results_per_date = 450
+        date_parts = math.ceil(limit / max_results_per_date)
+        
+        # consider videos since 2015 (ten years)
+        start_date = datetime.datetime(2015, 1, 1)
+        end_date = datetime.datetime.now()
+        total_days = (end_date - start_date).days
+        days_per_part = total_days // date_parts
+        date_ranges = []
+        for i in range(date_parts):
+            part_start_date = start_date + datetime.timedelta(days=i * days_per_part)
+            part_end_date = part_start_date + datetime.timedelta(days=days_per_part - 1)
+            if part_end_date > end_date:
+                part_end_date = end_date
+            date_ranges.append((part_start_date, part_end_date))
+
+        counter = 0
+        date_range_idx = 0
+        video_count_for_this_date = 0
+        while counter < limit:
+            prev_idx = date_range_idx
+            date_range_idx = counter // max_results_per_date
+            current_start_date, current_end_date = date_ranges[date_range_idx]
+            video_count_for_this_date = 0 if prev_idx != date_range_idx else video_count_for_this_date
+
             params = {
                 "part": "snippet",
                 "type": "video",
                 "maxResults": 50 if limit > 50 else limit,
-                "pageToken": next_page_token if next_page_token else None
+                "pageToken": next_page_token if next_page_token else None,
+                "publishedAfter": current_start_date.isoformat("T") + "Z",
+                "publishedBefore": current_end_date.isoformat("T") + "Z"
             }
 
             if keywords:
                 params["q"] = keywords
-            
+                    
             if category:
                 params["videoCategoryId"] = str(category)
 
             request = self.youtube.search().list(**params)
             response = request.execute()
             next_page_token = response.get('nextPageToken', None)
+
             for item in response['items']:
+                video_count_for_this_date += 1
                 video_ids.append(item['id']['videoId'])
-            if not next_page_token:
-                break
+
+            counter += 50
+
+            # if we still need results for this date range, but there is no next page
+            if not next_page_token and counter < (date_range_idx + 1) * max_results_per_date:
+                print(f"Found only {video_count_for_this_date} of {max_results_per_date} requested videos between {current_start_date.date()} to {current_end_date.date()} for the specified query!")
+                counter = (date_range_idx + 1) * max_results_per_date
+        
         video_ids = list(set(video_ids)) # remove duplicates
         return video_ids
     
