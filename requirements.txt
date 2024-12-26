@@ -2,3 +2,6 @@ python-dotenv
 pandas
 google-api-python-client
 joblib
+jupyter
+matplotlib
+scikit-learn

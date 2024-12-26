@@ -40,12 +40,12 @@ while True:
 
 while True:
     try:
-        num_results = int(input("Number of results to show (1-10000): "))
-        if num_results < 1 or num_results > 10000:
+        num_results = int(input("Maximum number of videos to be retrieved (1-5000): "))
+        if num_results < 1 or num_results > 5000:
             raise RuntimeError()
         break
     except:
-        print("Please enter a valid integer between 1 and 10000!")
+        print("Please enter a valid integer between 1 and 5000!")
 
 output_csv = input("Name of output .csv file (existing ones will be overwritten): ") + ".csv"
 output_path = os.path.join("data", "requests", output_csv)
@@ -59,6 +59,6 @@ result_df = result_df.drop(["caption", "description"], axis=1)
 result_df.to_csv(output_path)
 
 with open(os.path.join("data", "requests", "request-history.txt"), 'a') as file:
-    file.write(output_csv + ",    keywords: " + keywords + ",    categoryFilter: " + str(category) + ",    numberOfResults: " + str(num_results) + "\n")
+    file.write(output_csv + ",    keywords: " + keywords + ",    categoryFilter: " + str(category) + ",    maxNumberOfResults: " + str(num_results) + "\n")
 
 print("Results successfully saved to", output_path)

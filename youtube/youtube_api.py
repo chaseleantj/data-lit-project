@@ -59,7 +59,7 @@ class YouTubeAPI:
         video_ids = []
 
         # do multiple queries with different date filters for larger requests due to the limited page token count
-        max_results_per_date = 450
+        max_results_per_date = 500
         date_parts = math.ceil(limit / max_results_per_date)
         
         # consider videos since 2015 (ten years)
@@ -74,6 +74,7 @@ class YouTubeAPI:
             if part_end_date > end_date:
                 part_end_date = end_date
             date_ranges.append((part_start_date, part_end_date))
+        date_ranges.reverse() # the last entry can yield less results, so make sure it isn't the most recent period
 
         counter = 0
         date_range_idx = 0
@@ -110,11 +111,16 @@ class YouTubeAPI:
             counter += 50
 
             # if we still need results for this date range, but there is no next page
-            if not next_page_token and counter < (date_range_idx + 1) * max_results_per_date:
-                print(f"Found only {video_count_for_this_date} of {max_results_per_date} requested videos between {current_start_date.date()} to {current_end_date.date()} for the specified query!")
+            results_needed = min(max_results_per_date, limit - (date_range_idx * max_results_per_date))
+            if not next_page_token and video_count_for_this_date < results_needed:
+                print(f"Found only {video_count_for_this_date} of {results_needed} requested videos between {current_start_date.date()} to {current_end_date.date()} for the specified query!")
                 counter = (date_range_idx + 1) * max_results_per_date
         
+        num_before_duplicate_removal = len(video_ids)
         video_ids = list(set(video_ids)) # remove duplicates
+        num_after_duplicate_removal = len(video_ids)
+        if num_after_duplicate_removal < num_before_duplicate_removal:
+            print(f"Removed {num_before_duplicate_removal - num_after_duplicate_removal} duplicates from the {num_before_duplicate_removal} results.")
         return video_ids
     
 
@@ -141,6 +147,7 @@ class YouTubeAPI:
                             video_info[v]=None
                 video_info["thumbnail-url"] = video["snippet"]["thumbnails"]["high"]["url"]
                 all_info.append(video_info)
+        print(f"Total number of unique results: {len(all_info)}")
         return (pd.DataFrame(all_info))
     
 
