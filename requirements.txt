@@ -5,3 +5,4 @@ joblib
 jupyter
 matplotlib
 scikit-learn
+opencv-python
