@@ -6,3 +6,6 @@ jupyter
 matplotlib
 scikit-learn
 opencv-python
+deepface
+tf-keras # required for deepface
+tensorrt # required for deepface
