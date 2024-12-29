@@ -9,3 +9,4 @@ opencv-python
 deepface
 tf-keras # required for deepface
 tensorrt # required for deepface
+easyocr
