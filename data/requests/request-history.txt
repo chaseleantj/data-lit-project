@@ -13,3 +13,4 @@ how-to-and-style.csv,    keywords: ,    categoryFilter: 26,    maxNumberOfResult
 education.csv,    keywords: ,    categoryFilter: 27,    maxNumberOfResults: 650
 science-and-technology.csv,    keywords: ,    categoryFilter: 28,    maxNumberOfResults: 650
 nonprofits-and-activism.csv,    keywords: ,    categoryFilter: 29,    maxNumberOfResults: 650
+education_5k.csv,    keywords: ,    categoryFilter: 27,    maxNumberOfResults: 5000
