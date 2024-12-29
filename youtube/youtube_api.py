@@ -5,6 +5,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from joblib import Memory
 from joblib.memory import expires_after
+import datetime
+import math
 
 
 cachedir = './cache'
@@ -52,24 +54,73 @@ class YouTubeAPI:
         return df
     
     
-    def get_kwvids(self, keywords, limit=100):
+    def get_kwvids(self, keywords, category, limit=100):
         next_page_token = None
         video_ids = []
-        while len(video_ids) < limit:
-            request = self.youtube.search().list(
-                part="snippet",
-                q=','.join(keywords),
-                type="video",
-                maxResults=50 if limit > 50 else limit,
-                pageToken=next_page_token if next_page_token else None
-            )
+
+        # do multiple queries with different date filters for larger requests due to the limited page token count
+        max_results_per_date = 500
+        date_parts = math.ceil(limit / max_results_per_date)
+        
+        # consider videos since 2015 (ten years)
+        start_date = datetime.datetime(2015, 1, 1)
+        end_date = datetime.datetime.now()
+        total_days = (end_date - start_date).days
+        days_per_part = total_days // date_parts
+        date_ranges = []
+        for i in range(date_parts):
+            part_start_date = start_date + datetime.timedelta(days=i * days_per_part)
+            part_end_date = part_start_date + datetime.timedelta(days=days_per_part - 1)
+            if part_end_date > end_date:
+                part_end_date = end_date
+            date_ranges.append((part_start_date, part_end_date))
+        date_ranges.reverse() # the last entry can yield less results, so make sure it isn't the most recent period
+
+        counter = 0
+        date_range_idx = 0
+        video_count_for_this_date = 0
+        while counter < limit:
+            prev_idx = date_range_idx
+            date_range_idx = counter // max_results_per_date
+            current_start_date, current_end_date = date_ranges[date_range_idx]
+            video_count_for_this_date = 0 if prev_idx != date_range_idx else video_count_for_this_date
+
+            params = {
+                "part": "snippet",
+                "type": "video",
+                "maxResults": 50 if limit > 50 else limit,
+                "pageToken": next_page_token if next_page_token else None,
+                "publishedAfter": current_start_date.isoformat("T") + "Z",
+                "publishedBefore": current_end_date.isoformat("T") + "Z"
+            }
+
+            if keywords:
+                params["q"] = keywords
+                    
+            if category:
+                params["videoCategoryId"] = str(category)
+
+            request = self.youtube.search().list(**params)
             response = request.execute()
             next_page_token = response.get('nextPageToken', None)
+
             for item in response['items']:
+                video_count_for_this_date += 1
                 video_ids.append(item['id']['videoId'])
-            if not next_page_token:
-                break
+
+            counter += 50
+
+            # if we still need results for this date range, but there is no next page
+            results_needed = min(max_results_per_date, limit - (date_range_idx * max_results_per_date))
+            if not next_page_token and video_count_for_this_date < results_needed:
+                print(f"Found only {video_count_for_this_date} of {results_needed} requested videos between {current_start_date.date()} to {current_end_date.date()} for the specified query!")
+                counter = (date_range_idx + 1) * max_results_per_date
+        
+        num_before_duplicate_removal = len(video_ids)
         video_ids = list(set(video_ids)) # remove duplicates
+        num_after_duplicate_removal = len(video_ids)
+        if num_after_duplicate_removal < num_before_duplicate_removal:
+            print(f"Removed {num_before_duplicate_removal - num_after_duplicate_removal} duplicates from the {num_before_duplicate_removal} results.")
         return video_ids
     
 
@@ -83,7 +134,7 @@ class YouTubeAPI:
             response = request.execute()
             for video in response['items']:
                 keepstats={'snippet':['channelTitle','title','description','tags','publishedAt'],
-                    'statistics':['viewCount','likeCount','commentCount'],
+                    'statistics':['viewCount','likeCount','commentCount','subscriberCount'],
                     'contentDetails':['duration','definition','caption']
                     }
                 video_info={}
@@ -94,8 +145,9 @@ class YouTubeAPI:
                             video_info[v]=video[k][v]
                         except:
                             video_info[v]=None
-                        
+                video_info["thumbnail-url"] = video["snippet"]["thumbnails"]["high"]["url"]
                 all_info.append(video_info)
+        print(f"Total number of unique results: {len(all_info)}")
         return (pd.DataFrame(all_info))
     
 
@@ -108,17 +160,12 @@ class YouTubeAPI:
         return df
 
 
-    def search_by_keywords(self, keywords, limit=100):
+    def search_request(self, keywords, category, limit=100):
 
         result = RESULT_TEMPLATE.copy()
 
-        keywords = [keyword for keyword in keywords if keyword]
-        if len(keywords) == 0:
-            result['warning'] = "No keywords provided."
-            return result
-        
         try:
-            video_ids = self.get_keyword_video_ids(keywords, limit)
+            video_ids = self.get_keyword_video_ids(keywords, category, limit)
             result["video_df"] = self.get_video_details(video_ids)
         except HttpError as e:
             result["ok"] = False

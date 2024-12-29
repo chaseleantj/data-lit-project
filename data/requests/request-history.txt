@@ -1,0 +1,16 @@
+film-and-animation.csv,    keywords: ,    categoryFilter: 1,    numberOfResults: 650
+autos-and-vehicles.csv,    keywords: ,    categoryFilter: 2,    numberOfResults: 650
+music.csv,    keywords: ,    categoryFilter: 10,    numberOfResults: 650
+pets-and-animals.csv,    keywords: ,    categoryFilter: 15,    numberOfResults: 650
+sports.csv,    keywords: ,    categoryFilter: 17,    numberOfResults: 650
+travel-and-events.csv,    keywords: ,    categoryFilter: 19,    numberOfResults: 650
+gaming.csv,    keywords: ,    categoryFilter: 20,    numberOfResults: 650
+people-and-blogs.csv,    keywords: ,    categoryFilter: 22,    maxNumberOfResults: 650
+comedy.csv,    keywords: ,    categoryFilter: 23,    maxNumberOfResults: 650
+entertainment.csv,    keywords: ,    categoryFilter: 24,    maxNumberOfResults: 1500
+news-and-politics.csv,    keywords: ,    categoryFilter: 25,    maxNumberOfResults: 650
+how-to-and-style.csv,    keywords: ,    categoryFilter: 26,    maxNumberOfResults: 650
+education.csv,    keywords: ,    categoryFilter: 27,    maxNumberOfResults: 650
+science-and-technology.csv,    keywords: ,    categoryFilter: 28,    maxNumberOfResults: 650
+nonprofits-and-activism.csv,    keywords: ,    categoryFilter: 29,    maxNumberOfResults: 650
+education_5k.csv,    keywords: ,    categoryFilter: 27,    maxNumberOfResults: 5000
