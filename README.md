@@ -63,3 +63,10 @@ hsv = image_utils.calculate_average_hsl_cv2(file_utils.load_single_image("pic.jp
 ```
 {'hue': 356.3891218844166, 'saturation': 0.86062485, 'lightness': 0.43709543}
 ```
+To detect faces in an image:
+```
+from utils import face_detection_utils
+
+faces = face_detection_utils.detect_faces("path/to/image.jpg")
+num_faces = face_detection_utils.count_faces(faces)
+```
