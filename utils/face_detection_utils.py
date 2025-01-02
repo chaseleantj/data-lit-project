@@ -8,7 +8,7 @@ import numpy as np
 from utils.time_utils import time_it
 
 
-@time_it
+# @time_it
 def detect_faces(image_path: str | np.ndarray, detector_backend: str = "ssd") -> List[Dict[str, Any]]:
     """
     Detect faces in an image and return the bounding boxes of the detected faces.
