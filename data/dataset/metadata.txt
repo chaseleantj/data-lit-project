@@ -1,0 +1,2 @@
+news-and-politics.csv: {'debate-news.csv': 1614, 'disaster-news.csv': 1428, 'documentary-news.csv': 1549, 'economy-news.csv': 1479, 'election-news.csv': 1552, 'survey-news.csv': 1484, 'war-news.csv': 894}
+sports.csv: {'baseball-sports.csv': 1500, 'basketball-sports.csv': 1471, 'cricket-sports.csv': 1377, 'football-sports.csv': 1472, 'hockey-sports.csv': 1352, 'soccer-sports.csv': 1229, 'tennis-sports.csv': 1421, 'volleyball-sports.csv': 178}
