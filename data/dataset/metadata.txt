@@ -1,3 +1,4 @@
 news-and-politics.csv: {'debate-news.csv': 1614, 'disaster-news.csv': 1428, 'documentary-news.csv': 1549, 'economy-news.csv': 1479, 'election-news.csv': 1552, 'survey-news.csv': 1484, 'war-news.csv': 894}
 sports.csv: {'baseball-sports.csv': 1500, 'basketball-sports.csv': 1471, 'cricket-sports.csv': 1377, 'football-sports.csv': 1472, 'hockey-sports.csv': 1352, 'soccer-sports.csv': 1229, 'tennis-sports.csv': 1421, 'volleyball-sports.csv': 178}
 entertainment.csv: {'challenge-entertainment.csv': 1587, 'funny-entertainment.csv': 1480, 'kids-entertainment.csv': 1595, 'lifestyle-entertainment.csv': 1619, 'show-entertainment.csv': 1539, 'viral-entertainment.csv': 1518, 'compilation-entertainment.csv': 662}
+education.csv: {'science-education.csv': 2182, 'math-education.csv': 2343, 'programming-education.csv': 2044, 'finance-education.csv': 1628, 'languages-education.csv': 1542, 'history-education.csv': 261}
