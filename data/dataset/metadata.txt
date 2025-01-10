@@ -4,3 +4,5 @@ entertainment.csv: {'challenge-entertainment.csv': 1587, 'funny-entertainment.cs
 education.csv: {'science-education.csv': 2182, 'math-education.csv': 2343, 'programming-education.csv': 2044, 'finance-education.csv': 1628, 'languages-education.csv': 1542, 'history-education.csv': 261}
 comedy.csv: {'stand_up_comedy.csv': 982, 'pranks_comedy.csv': 1038, 'parody_comedy.csv': 1611, 'comedy_interview_comedy.csv': 1451, 'funny_fails_comedy.csv': 1480, 'improvisation_comedy.csv': 1454, 'impressions_comedy.csv': 1448, 'mockumentary_comedy.csv': 536}
 howto_style.csv: {'diy_projects_howto.csv': 1464, 'makeup_howto.csv': 1571, 'style_howto.csv': 1523, 'home_decor_howto.csv': 1512, 'fitness_howto.csv': 1525, 'cooking_howto.csv': 1535, 'organizational_tips_howto.csv': 870}
+people-and-blogs.csv: {'cooking-blogs.csv': 1553, 'documentary-blogs.csv': 1651, 'fashion-blogs.csv': 1516, 'lifestyle-blogs.csv': 1631, 'travel-blogs.csv': 1583, 'vlog-blogs.csv': 1608, 'interview-blogs.csv': 458}
+gaming.csv: {'callofduty.csv': 1641, 'gta.csv': 1598, 'halo.csv': 1569, 'mario.csv': 1619, 'minecraft.csv': 1525, 'pokemon.csv': 1573, 'zelda.csv': 475}
