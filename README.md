@@ -58,10 +58,12 @@ To find the hue, saturation and lightness of an image:
 ```
 from utils import file_utils, image_utils
 
-hsv = image_utils.calculate_average_hsl_cv2(file_utils.load_single_image("pic.jpg"))
+hsv = image_utils.calculate_image_features(file_utils.load_single_image("path/to/image.jpg"))
 ```
+
+Example output:
 ```
-{'hue': 356.3891218844166, 'saturation': 0.86062485, 'lightness': 0.43709543}
+{'hue': np.float32(62.17), 'saturation': np.float32(0.6006), 'lightness': np.float32(0.5476), 'contrast': np.float32(0.1292), 'sharpness': np.float32(117.7611)}
 ```
 To detect faces in an image:
 ```
