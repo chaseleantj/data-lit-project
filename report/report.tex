@@ -1,0 +1,105 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+%     \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading neurips_2021
+
+% ready for submission
+\usepackage[preprint]{neurips_2023}
+
+% to compile a preprint version, e.g., for submission to arXiv, add add the
+% [preprint] option:
+%     \usepackage[preprint]{neurips_2021}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+%     \usepackage[final]{neurips_2021}
+
+% to avoid loading the natbib package, add option nonatbib:
+%    \usepackage[nonatbib]{neurips_2021}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage[colorlinks=true]{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+\usepackage{xcolor}         % colors
+
+\title{Predicting YouTube Video Views \\from Video and Thumbnail Features}
+
+% The \author macro works with any number of authors. There are two commands
+% used to separate the names and addresses of multiple authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to break the
+% lines. Using \AND forces a line break at that point. So, if LaTeX puts 3 of 4
+% authors names on the first line, and the last on the second line, try using
+% \AND instead of \And before the third author name.
+
+\author{%
+  Lean Ting Jin\\
+  Matrikelnummer 6956985\\
+  \texttt{dummymail1@uni-tuebingen.de} \\
+  \And
+  Finn Springorum\\
+  Matrikelnummer 6124977\\
+  \texttt{dummymail1@uni-tuebingen.de} \\
+  \And
+  Christian Traxler\\
+  Matrikelnummer 6969273\\
+  \texttt{christian.traxler@student.uni-tuebingen.de} \\
+  \And
+  Anna Chechenina\\
+  Matrikelnummer 6987499\\
+  \texttt{dummymail1@uni-tuebingen.de} \\
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  We are are planning to use the YouTube API \cite{youtubeapi} to see which factors of a YouTube video best predict how many videos it will receive. 
+
+\end{abstract}
+
+\section{Introduction}
+
+\section{Methods}
+\textbf{Data Collection }We collected 80k data points of YouTube videos from the YouTube API spread across 8 categories relating to entertainment (gaming, comedy, education, entertainment, how-to-style, news and politics, people and blogs, and sports) based on the pre-defined categories of the YouTube API. Additionally, the videos were queried to be relatively uniform from 2015 onward. \\
+\textbf{Video Statistics }From the YouTube API, we saved relevant information such as the data of publication, view count, like count, comment count, subscriber count, duration, and the thumbnail of the video. \\
+\textbf{Thumbnail Image Statistics }In addition, we computed some relevant thumbnail image statistics such as the hue (average hue in radians), saturation (average saturation normalized to [0,1]), lightness (average value/lightness normalized to [0,1]), contrast (standard deviation of the normalized grayscale image), and sharpness (variance of the Laplacian (second derivative) of the grayscale image). \\
+\textbf{Face Detection }Finally, we use the DeepFace library \cite{serengil2024lightface,serengil2020lightface} to extract the number of human faces in the thumbnail.
+\\
+
+
+\textbf{Analysis }
+
+
+\section{Results}
+
+
+\section{Discussion/Limitations}
+\textbf{Discussion }
+
+\textbf{Limitations } As a project based on the YouTube API, there are couple of inherent limitations of the data collection. One issue with the data collection is the categories: each video is either user-defined or automatically assigned only one category. This means that there exists some error in the categories such that errors are likely and that some categories that we wanted to exclude (like music videos) are likely to be included and may skew results. \\
+Also, 
+
+
+\section{Statement of Contributions}
+
+\emph{Here is an example:}
+
+XX performed the correlation analysis, organized the data and code for the processing of dataset1 and subdataset2, and created the scatter plot. 
+YY created the random forest regression model, performed the data cleaning for the xyz analysis / xyz database, and created the bar charts to display the regression results. 
+ZZ researched and collected the raw data, restructured the pipeline for the data analysis, and proof-read the draft for the final report. 
+AA performed the data cleaning for dataset1, and performed the Ridge and Lasso regularization. 
+All members of the group contributed to writing the report.
+
+
+
+\bibliographystyle{unsrt}%Used BibTeX style is unsrt
+\bibliography{bibliography}
+
+\end{document}
