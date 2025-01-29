@@ -1,17 +1,17 @@
 \documentclass{article}
 
-% if you need to pass options to natbib, use, e.g.:
+% if you need to pass options to natbib, use, e.g.,:
 %     \PassOptionsToPackage{numbers, compress}{natbib}
 % before loading neurips_2021
 
 % ready for submission
 \usepackage[preprint]{neurips_2023}
 
-% to compile a preprint version, e.g., for submission to arXiv, add add the
+% to compile a preprint version, e.g.,, for submission to arXiv, add add the
 % [preprint] option:
 %     \usepackage[preprint]{neurips_2021}
 
-% to compile a camera-ready version, add the [final] option, e.g.:
+% to compile a camera-ready version, add the [final] option, e.g.,:
 %     \usepackage[final]{neurips_2021}
 
 % to avoid loading the natbib package, add option nonatbib:
@@ -44,7 +44,7 @@
   \And
   Finn Springorum\\
   Matrikelnummer 6124977\\
-  \texttt{dummymail1@uni-tuebingen.de} \\
+  \texttt{finn.springorum@student.uni-tuebingen.de} \\
   \And
   Christian Traxler\\
   Matrikelnummer 6969273\\
@@ -60,21 +60,16 @@
 \maketitle
 
 \begin{abstract}
-  We are are planning to use the YouTube API \cite{youtubeapi} to see which factors of a YouTube video best predict how many videos it will receive. 
+  We are are planning to use the YouTube Data API v3 \cite{youtubeapi} to see which factors of a YouTube video best predict how many videos it will receive. 
 
 \end{abstract}
 
 \section{Introduction}
-
+The YouTube algorithm is notorious for its enigmatic and capricious nature, which often results in the arbitrary promotion of specific videos. However, it is ultimately the user who decides in a split second whether a video is being watched. Content creators, especially those in the entertainment sector, aim to maximize their success in terms of video performance, perhaps even live from YouTube, and may have a team with a thorough viewer engagement strategy. In this context, the thumbnail, a fundamental component of the video's presentation, plays a pivotal role in influencing user engagement and selection, as indicated by several studies. However, it remains unclear whether eye-catching thumbnails really lead to a higher view count on average and which aspects of an image might be dominating its interestingness. The present study aims to examine the relationship between diverse image features that are hypothesized to correlate with visual appeal and the view count of the corresponding entertainment video.
 \section{Methods}
-\textbf{Data Collection }We collected 80k data points of YouTube videos from the YouTube API spread across 8 categories relating to entertainment (gaming, comedy, education, entertainment, how-to-style, news and politics, people and blogs, and sports) based on the pre-defined categories of the YouTube API. Additionally, the videos were queried to be relatively uniform from 2015 onward. \\
-\textbf{Video Statistics }From the YouTube API, we saved relevant information such as the data of publication, view count, like count, comment count, subscriber count, duration, and the thumbnail of the video. \\
-\textbf{Thumbnail Image Statistics }In addition, we computed some relevant thumbnail image statistics such as the hue (average hue in radians), saturation (average saturation normalized to [0,1]), lightness (average value/lightness normalized to [0,1]), contrast (standard deviation of the normalized grayscale image), and sharpness (variance of the Laplacian (second derivative) of the grayscale image). \\
-\textbf{Face Detection }Finally, we use the DeepFace library \cite{serengil2024lightface,serengil2020lightface} to extract the number of human faces in the thumbnail.
-\\
-
-
-\textbf{Analysis }
+\textbf{Data Collection.} The YouTube Data API \cite{youtubeapi} is a powerful and convenient resource for research pertaining to YouTube video and channel statistics. Its highly parameterized list search method enables the input of a specific query and the acquisition of detailed, publicly visible features for hundreds of videos. Given our primary interest in videos intended for entertainment, designed to appear in the feed of a user and elicit a response, our focus did not extend to videos explicitly sought after through searches (e.g., Film \& Animation), videos which are unlikely to include human faces on their thumbnail (e.g., Pets \& Animals), or videos from a very niche field (e.g., Nonprofits \& Activism). Therefore, we decided to include eight of the 15 main YouTube video categories, namely Comedy, Education, Entertainment, Gaming, How-to \& Style, News \& Politics, People and Blogs, and Sports. Due to the limited number of videos that can be retrieved for a given query, the date range from January 1st, 2015 to the time of collection was divided into disjoint sets, and 500 videos were requested for each period. This strategy enabled the acquisition of thousands of videos for a single query. To prevent duplicates while respecting the daily API call limit for a user, our data collection strategy entailed the request of up to 2.5k videos from a designated category, each accompanied by a singular generic keyword (e.g., most popular video games for the Gaming category), until the collection comprised precisely 10k unique videos from said category, yielding a dataset with a total of 80k data points.\\
+\textbf{Video and Thumbnail Features.} For each video, a multitude of characteristics were saved, most notably the view count, subscriber count, and the URL to the high-resolution version of its thumbnail. Subsequently, a pipeline was implemented that temporarily downloaded the thumbnails and computed the requested features like the average hue (in radians), saturation (normalized to [0,1]), and lightness (normalized to [0,1]) across all pixels, as well as the contrast (standard deviation of the normalized grayscale image) and sharpness (variance of the Laplacian of the grayscale image). We further utilized the DeepFace library \cite{serengil2024lightface,serengil2020lightface} in high-accuracy "retinaface" mode to extract the predicted number of human faces in the thumbnail.\\
+\textbf{Analysis.} We predominantly employed linear regression methods due to the implausibility of more intricate relationships between the view count and the one-dimensional eye-catchiness features. However, since linear regression methods require the residuals to be homoscedastic and normally distributed, we first log-transformed the view count whose variance substantially increases with the order of magnitude. In addition, we introduced a critical step in our analysis: Since the YouTube algorithm clearly favors videos from channels with lots of subscribers, which is expressed in their view count, we normalized the view count based on the respective subscriber count. Specifically, we employed a linear regression of the log-transformed view count against the log-transformed subscriber count, subsequently utilizing the corresponding residuals. This preprocessing approach was designed to elucidate the fluctuations in view count that were not explained by the subscriber count, but potentially by the different thumbnail features that were considered.
 
 
 \section{Results}
