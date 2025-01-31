@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{youtubeapi}
+{Google}.
+\newblock {YouTube Data API v3}.
+\newblock \url{https://developers.google.com/youtube/v3/docs}.
+
+\bibitem{serengil2024lightface}
+Sefik~Ilkin Serengil and Alper Ozpinar.
+\newblock A benchmark of facial recognition pipelines and co-usability performances of modules.
+\newblock {\em Bilisim Teknolojileri Dergisi}, 17(2):95--107, 2024.
+
+\bibitem{serengil2020lightface}
+Sefik~Ilkin Serengil and Alper Ozpinar.
+\newblock Lightface: A hybrid deep face recognition framework.
+\newblock In {\em 2020 Innovations in Intelligent Systems and Applications Conference (ASYU)}, pages 23--27. IEEE, 2020.
+
+\end{thebibliography}

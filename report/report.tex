@@ -40,7 +40,7 @@
 \author{%
   Lean Ting Jin\\
   Matrikelnummer 6956985\\
-  \texttt{dummymail1@uni-tuebingen.de} \\
+  \texttt{ting-jin.lean@student.uni-tuebingen.de} \\
   \And
   Finn Springorum\\
   Matrikelnummer 6124977\\
@@ -65,12 +65,40 @@
 \end{abstract}
 
 \section{Introduction}
-The YouTube algorithm is notorious for its enigmatic and capricious nature, which often results in the arbitrary promotion of specific videos. However, it is ultimately the user who decides in a split second whether a video is being watched. Content creators, especially those in the entertainment sector, aim to maximize their success in terms of video performance, perhaps even live from YouTube, and may have a team with a thorough viewer engagement strategy. In this context, the thumbnail, a fundamental component of the video's presentation, plays a pivotal role in influencing user engagement and selection, as indicated by several studies. However, it remains unclear whether eye-catching thumbnails really lead to a higher view count on average and which aspects of an image might be dominating its interestingness. The present study aims to examine the relationship between diverse image features that are hypothesized to correlate with visual appeal and the view count of the corresponding entertainment video.
-\section{Methods}
-\textbf{Data Collection.} The YouTube Data API \cite{youtubeapi} is a powerful and convenient resource for research pertaining to YouTube video and channel statistics. Its highly parameterized list search method enables the input of a specific query and the acquisition of detailed, publicly visible features for hundreds of videos. Given our primary interest in videos intended for entertainment, designed to appear in the feed of a user and elicit a response, our focus did not extend to videos explicitly sought after through searches (e.g., Film \& Animation), videos which are unlikely to include human faces on their thumbnail (e.g., Pets \& Animals), or videos from a very niche field (e.g., Nonprofits \& Activism). Therefore, we decided to include eight of the 15 main YouTube video categories, namely Comedy, Education, Entertainment, Gaming, How-to \& Style, News \& Politics, People and Blogs, and Sports. Due to the limited number of videos that can be retrieved for a given query, the date range from January 1st, 2015 to the time of collection was divided into disjoint sets, and 500 videos were requested for each period. This strategy enabled the acquisition of thousands of videos for a single query. To prevent duplicates while respecting the daily API call limit for a user, our data collection strategy entailed the request of up to 2.5k videos from a designated category, each accompanied by a singular generic keyword (e.g., most popular video games for the Gaming category), until the collection comprised precisely 10k unique videos from said category, yielding a dataset with a total of 80k data points.\\
-\textbf{Video and Thumbnail Features.} For each video, a multitude of characteristics were saved, most notably the view count, subscriber count, and the URL to the high-resolution version of its thumbnail. Subsequently, a pipeline was implemented that temporarily downloaded the thumbnails and computed the requested features like the average hue (in radians), saturation (normalized to [0,1]), and lightness (normalized to [0,1]) across all pixels, as well as the contrast (standard deviation of the normalized grayscale image) and sharpness (variance of the Laplacian of the grayscale image). We further utilized the DeepFace library \cite{serengil2024lightface,serengil2020lightface} in high-accuracy "retinaface" mode to extract the predicted number of human faces in the thumbnail.\\
-\textbf{Analysis.} We predominantly employed linear regression methods due to the implausibility of more intricate relationships between the view count and the one-dimensional eye-catchiness features. However, since linear regression methods require the residuals to be homoscedastic and normally distributed, we first log-transformed the view count whose variance substantially increases with the order of magnitude. In addition, we introduced a critical step in our analysis: Since the YouTube algorithm clearly favors videos from channels with lots of subscribers, which is expressed in their view count, we normalized the view count based on the respective subscriber count. Specifically, we employed a linear regression of the log-transformed view count against the log-transformed subscriber count, subsequently utilizing the corresponding residuals. This preprocessing approach was designed to elucidate the fluctuations in view count that were not explained by the subscriber count, but potentially by the different thumbnail features that were considered.
+YouTube is the second most visited website in the world. In 2024, creators uploaded $x$ hours of content to YouTube, and were paid a total of \$$y$ million in revenue (source: \cite{}). Therefore, for YouTube creators, there is a massive financial incentive to maximize the view count of a video.
 
+The number of views a video receives is dependent on the YouTube algorithm. However, this algorithm is a black box. Despite this, it is widely believed that the number of views a video receives is strongly dependent on 3 main factors: (1) the click-through rate of the video's thumbnail, (2) the watch duration of the video and (3) the number of subscribers of the channel that published the video (source: \cite{}).
+
+The watch duration (2) highly depends on how engaging a video is. Making a video more engaging requires a significant investment in time and money. Meanwhile, the number of subscribers a channel has (3) is also beyond the control of a creator. In contrast, it is relatively easier to tweak the thumbnail of a video to attempt to improve the click-through rate. Multiple online resources \cite{}, as well as prominent YouTubers \cite{} suggest that thumbnails that are more eye-catching are more likely to be clicked. However, there does not seem to be any quantitative results on this topic in literature.
+
+Although it is not clear how one can quantify the eye-catchiness of a thumbnail, it is reasonable to assume certain features such as color, saturation and the presence of human faces are important.
+Therefore, the aim of this study is to investigate the relationship between the eye-catchiness of a video's thumbnail, and the number of views it receives. As a proxy for eye-catchiness, we use 6 features which are easily derived from the thumbnail: hue, saturation, lightness, contrast, sharpness and the number of faces.
+
+
+\section{Methods}
+\textbf{Data Collection.} We used the YouTube Data API \cite{youtubeapi} to collect data on videos from a variety of categories. There are 15 main categories of videos on YouTube. Given our interest in thumbnails, we decided to focus on video categories intended to appear in the feed of a user and elicit a response, which are: Comedy, Education, Entertainment, Gaming, How-to \& Style, News \& Politics, People and Blogs, and Sports.
+
+We excluded videos explicitly sought after through searches (e.g., Film \& Animation), videos which are unlikely to include human faces on their thumbnail (e.g., Pets \& Animals), or videos from a very niche field (e.g., Nonprofits \& Activism).
+
+Due to the limited number of videos that can be retrieved for a given query, the date range from January 1st, 2015 to the time of collection was divided into disjoint sets, and 500 videos were requested for each period. This strategy enabled the acquisition of thousands of videos for a single query. To prevent duplicates while respecting the daily API call limit for a user, our data collection strategy entailed the request of up to 2,500 videos from a designated category, each accompanied by a singular generic keyword (e.g., most popular video games for the Gaming category), until the collection comprised precisely 10,000 unique videos from said category, yielding a dataset with 8 categories, for a total of 80,000 unique videos.
+
+
+
+\textbf{Video and Thumbnail Features.} For each video $V_i$, we obtained the following information of interest: thumbnail, $T_i$, view count, $N_i$ and subscriber count, $S_i$. From each thumbnail $T_{i}$, we extracted the following 6 features: hue ($h_{i}$), saturation ($s_{i}$), lightness ($l_{i}$), contrast ($c_{i}$), sharpness ($s_{i}$) and number of faces ($f_{i}$).
+
+The hue is the angle of the mean color of the thumbnail in the HSV color space, with a range of 0 to 360 degrees. The saturation, lightness and contrast follow their standard definitions as implemented in the OpenCV Python library (normalized to [0,1]). The sharpness is the log variance of the Laplacian of the grayscale image. The number of faces is the number of distinct faces in the thumbnail as predicted by RetinaFace model implemented in the DeepFace library \cite{serengil2024lightface,serengil2020lightface}.
+
+
+\textbf{Analysis.} We are interested the the relationship between the view count $N_i$ and the 6 features derived from the thumbnail $T_i$. However, before performing any analysis, we note that intuitively, a video $V_i$ published by a channel with more subscribers $S_i$ is likely to have a higher view count $N_i$ compared to one with fewer subscribers, regardless of the thumbnail features. Therefore, to address this bias, we first fitted a linear regression model of (log) view count against (log) subscriber count. As the data appears log-normal, the base-10 logarithm is used to ensure that the residuals are homoscedastic and normally distributed. Only the residuals of this model, called the residual log view count, $R_{i} := \log(N_i) - \hat{\beta}_0 - \hat{\beta}_1 \log(S_i)$ were considered for the remainder of the analysis.
+
+
+Next, the correlation between the 6 thumbnail features was investigated. There did not appear to be strong multicollinearity between features. A linear regression model was fitted to each continuous feature (saturation, lightness, contrast, sharpness).
+
+Meanwhile, the number of faces $f_{i}$ was treated as a discrete feature, and 95\% confidence intervals of the residual log view count $R_{i}$ were computed for each face count $k\in\{0,1,2,3\}$. The videos with thumbnails containing 3 or more faces were grouped into the same bin and analyzed together.
+
+We also treated the hue $h_{i}$ as a discrete feature. Since hue ranges from 0 to 360 degrees, we grouped the videos into 6 bins of equal width. For example, bin with a hue of 0-60 degrees would contain videos with reddish thumbnails. We then computed a 95\% confidence interval for $R_{i}$ for each bin.
+
+Finally, a multiple linear regression model was fitted to the residual log view count $R_{i}$ against hue, saturation, lightness, contrast, and number of faces.
 
 \section{Results}
 
