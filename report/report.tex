@@ -26,7 +26,7 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{xcolor}         % colors
-
+\usepackage{graphicx}       % for images
 \title{Predicting YouTube Video Views \\from Video and Thumbnail Features}
 
 % The \author macro works with any number of authors. There are two commands
@@ -65,14 +65,15 @@
 \end{abstract}
 
 \section{Introduction}
-YouTube is the second most visited website in the world. In 2024, creators uploaded $x$ hours of content to YouTube, and were paid a total of \$$y$ million in revenue (source: \cite{}). Therefore, for YouTube creators, there is a massive financial incentive to maximize the view count of a video.
+YouTube is the second most visited website in the world. In 2024, creators uploaded $x$ hours of content to YouTube, and were paid a total of \$$y$ million in revenue (source: \cite{}). For YouTube creators, there is a massive financial incentive to maximize a video's view count.
 
-The number of views a video receives is dependent on the YouTube algorithm. However, this algorithm is a black box. Despite this, it is widely believed that the number of views a video receives is strongly dependent on 3 main factors: (1) the click-through rate of the video's thumbnail, (2) the watch duration of the video and (3) the number of subscribers of the channel that published the video (source: \cite{}).
+The view count of a video depends on the YouTube algorithm. However, this algorithm is a black box. Despite this, it is widely believed that the number of views a video receives is strongly correlated with 3 main factors: (1) the click-through rate of the video's thumbnail, (2) the watch duration of the video and (3) the number of subscribers of the channel (source: \cite{}).
 
-The watch duration (2) highly depends on how engaging a video is. Making a video more engaging requires a significant investment in time and money. Meanwhile, the number of subscribers a channel has (3) is also beyond the control of a creator. In contrast, it is relatively easier to tweak the thumbnail of a video to attempt to improve the click-through rate. Multiple online resources \cite{}, as well as prominent YouTubers \cite{} suggest that thumbnails that are more eye-catching are more likely to be clicked. However, there does not seem to be any quantitative results on this topic in literature.
 
-Although it is not clear how one can quantify the eye-catchiness of a thumbnail, it is reasonable to assume certain features such as color, saturation and the presence of human faces are important.
-Therefore, the aim of this study is to investigate the relationship between the eye-catchiness of a video's thumbnail, and the number of views it receives. As a proxy for eye-catchiness, we use 6 features which are easily derived from the thumbnail: hue, saturation, lightness, contrast, sharpness and the number of faces.
+Increasing the watch duration of a video requires a significant investment in time and money. Meanwhile, the number of subscribers a channel has is also beyond the control of a creator. In contrast, it is easier for a creator to tweak the thumbnail of a video to try to improve the click-through rate. While multiple online resources \cite{}, and prominent YouTubers \cite{} claim that more eye-catching thumbnails get more clicks, there does not seem to be any quantitative results on this topic in literature.
+
+
+Admittedly, it is not clear how one can quantify the eye-catchiness of a thumbnail. However, it is reasonable to assume certain features such as image color, saturation and the presence of human faces are important. Therefore, the aim of this study is to investigate the relationship between the eye-catchiness of a video's thumbnail, and the number of views it receives. As a proxy for eye-catchiness, we use 6 features which are easily derived from the thumbnail: hue, saturation, lightness, contrast, sharpness and the number of faces.
 
 
 \section{Methods}
@@ -80,7 +81,7 @@ Therefore, the aim of this study is to investigate the relationship between the 
 
 We excluded videos explicitly sought after through searches (e.g., Film \& Animation), videos which are unlikely to include human faces on their thumbnail (e.g., Pets \& Animals), or videos from a very niche field (e.g., Nonprofits \& Activism).
 
-Due to the limited number of videos that can be retrieved for a given query, the date range from January 1st, 2015 to the time of collection was divided into disjoint sets, and 500 videos were requested for each period. This strategy enabled the acquisition of thousands of videos for a single query. To prevent duplicates while respecting the daily API call limit for a user, our data collection strategy entailed the request of up to 2,500 videos from a designated category, each accompanied by a singular generic keyword (e.g., most popular video games for the Gaming category), until the collection comprised precisely 10,000 unique videos from said category, yielding a dataset with 8 categories, for a total of 80,000 unique videos.
+Due to the limited number of videos that can be retrieved for a given query, the date range from January 1st, 2015 to the time of collection was divided into disjoint sets, and 500 videos were requested for each period. This strategy enabled the acquisition of thousands of videos for a single query. To prevent duplicates while respecting the daily API limit, our data collection strategy entailed the request of up to 2,500 videos from a designated category, each accompanied by a singular generic keyword (e.g., most popular video games for the Gaming category), until the collection comprised precisely 10,000 unique videos from said category, yielding a dataset with 8 categories, for a total of 80,000 unique videos.
 
 
 
@@ -89,7 +90,25 @@ Due to the limited number of videos that can be retrieved for a given query, the
 The hue is the angle of the mean color of the thumbnail in the HSV color space, with a range of 0 to 360 degrees. The saturation, lightness and contrast follow their standard definitions as implemented in the OpenCV Python library (normalized to [0,1]). The sharpness is the log variance of the Laplacian of the grayscale image. The number of faces is the number of distinct faces in the thumbnail as predicted by RetinaFace model implemented in the DeepFace library \cite{serengil2024lightface,serengil2020lightface}.
 
 
-\textbf{Analysis.} We are interested the the relationship between the view count $N_i$ and the 6 features derived from the thumbnail $T_i$. However, before performing any analysis, we note that intuitively, a video $V_i$ published by a channel with more subscribers $S_i$ is likely to have a higher view count $N_i$ compared to one with fewer subscribers, regardless of the thumbnail features. Therefore, to address this bias, we first fitted a linear regression model of (log) view count against (log) subscriber count. As the data appears log-normal, the base-10 logarithm is used to ensure that the residuals are homoscedastic and normally distributed. Only the residuals of this model, called the residual log view count, $R_{i} := \log(N_i) - \hat{\beta}_0 - \hat{\beta}_1 \log(S_i)$ were considered for the remainder of the analysis.
+\textbf{Analysis.} We are interested the the relationship between the view count $N_i$ and the 6 features derived from the thumbnail $T_i$. However, before performing any analysis, we note that intuitively, a video $V_i$ published by a channel with more subscribers $S_i$ is likely to have a higher view count $N_i$ compared to one with fewer subscribers, regardless of the thumbnail features. To remove this influence, we first fitted a linear regression model of (log) view count against (log) subscriber count. As the data appears log-normal, the base-10 logarithm is used to ensure that the residuals are homoscedastic and normally distributed. Only the residuals of this model, called the residual log view count, $R_{i} := \log(N_i) - \hat{\beta}_0^{(\gamma)} - \hat{\beta}_1^{(\gamma)} \log(S_i)$ were considered for the remainder of the analysis. $\gamma \in \{1, 2, \cdots, 8\}$ corresponds to one of the 8 categories that video $V_i$ belongs to.
+
+
+\begin{figure}[h]
+  \begin{minipage}[t]{0.45\textwidth}
+    \vspace{0pt}  % Removes top spacing
+    \includegraphics[width=\textwidth]{figs/subscriber.png}
+  \end{minipage}%
+  \hspace{0.05\textwidth}%
+  \begin{minipage}[t]{0.45\textwidth}
+    \vspace{0pt}  % Removes top spacing
+    \caption{Regression of log view count against log subscriber count. The relationship is similar for all 8 video categories.
+    For the combined dataset, the relationship is $\widehat{\log(N_i)} = \hat{\beta}_0 + \hat{\beta}_1 \cdot \log(S_i)$, 95\% CI for $\beta_0 = [3.445, 3.571]$, 95\% CI for $\beta_1 = [0.663, 0.673]$, $R^2 = 0.467$.}
+    \label{fig:scatter_plot}
+
+  \end{minipage}
+\end{figure}
+
+
 
 
 Next, the correlation between the 6 thumbnail features was investigated. There did not appear to be strong multicollinearity between features. A linear regression model was fitted to each continuous feature (saturation, lightness, contrast, sharpness).
