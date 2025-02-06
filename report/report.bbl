@@ -5,6 +5,9 @@
 \newblock {YouTube Data API v3}.
 \newblock \url{https://developers.google.com/youtube/v3/docs}.
 
+\bibitem{youtube-stats}
+\url{https://www.marketingscoop.com/marketing/how-many-hours-of-video-are-uploaded-to-youtube-every-minute/}.
+
 \bibitem{serengil2024lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
 \newblock A benchmark of facial recognition pipelines and co-usability performances of modules.

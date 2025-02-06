@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  1 FEB 2025 11:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.10.20)  6 FEB 2025 10:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"c:/Users/Chase Lean/Desktop/Data Literacy/report/report.tex"
-(c:/Users/Chase Lean/Desktop/Data Literacy/report/report.tex
+**"c:/Users/Chase Lean/Desktop/data_lit/report/report.tex"
+(c:/Users/Chase Lean/Desktop/data_lit/report/report.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
 (c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -417,6 +417,10 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 61
  (c:/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
+
+LaTeX Font Warning: Font shape `T1/cmtt/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 61.
+
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -427,36 +431,85 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 
 {c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-<figs/subscriber.png, id=39, 714.7503pt x 570.933pt>
+<figs/subscriber.png, id=41, 783.92876pt x 592.2125pt>
 File: figs/subscriber.png Graphic file (type png)
 <use figs/subscriber.png>
-Package pdftex.def Info: figs/subscriber.png  used on input line 99.
-(pdftex.def)             Requested size: 178.86702pt x 142.87228pt.
+Package pdftex.def Info: figs/subscriber.png  used on input line 94.
+(pdftex.def)             Requested size: 266.31421pt x 201.18692pt.
 
 
-[2 <./figs/subscriber.png>] (./report.bbl)
+[2 <./figs/subscriber.png>]
+<figs/lr.png, id=57, 1965.3425pt x 993.7125pt>
+File: figs/lr.png Graphic file (type png)
+<use figs/lr.png>
+Package pdftex.def Info: figs/lr.png  used on input line 119.
+(pdftex.def)             Requested size: 397.48499pt x 200.96791pt.
+<figs/faces-and-hue.png, id=58, 991.705pt x 792.9625pt>
+File: figs/faces-and-hue.png Graphic file (type png)
+<use figs/faces-and-hue.png>
+Package pdftex.def Info: figs/faces-and-hue.png  used on input line 127.
+(pdftex.def)             Requested size: 266.31421pt x 212.94116pt.
 
-[3] (./report.aux)
+Underfull \hbox (badness 1043) in paragraph at lines 132--132
+\T1/ptm/m/n/10 (+20) hue box-plot was cho-sen
+ []
+
+
+Underfull \hbox (badness 1642) in paragraph at lines 132--132
+\T1/ptm/m/n/10 (+20) ac-cord-ing to the cen-tral
+ []
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 132--132
+\T1/ptm/m/n/10 (+20) 1: 28,696; 2: 10,872;
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+
+[3 <./figs/lr.png>]
+Underfull \vbox (badness 4060) has occurred while \output is active []
+
+
+
+[4 <./figs/faces-and-hue.png>] (./report.bbl
+Overfull \hbox (160.24419pt too wide) in paragraph at lines 9--10
+[][][]$\T1/cmtt/m/n/10 https : / / www . marketingscoop . com / marketing / how-[]many-[]hours-[]of-[]video-[]are-[]uploaded-[]to-[]youtube-[]every-[]minute/$[][]\T1/ptm/m/n/10 (-20) . 
+ []
+
+)
+
+[5] (./report.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-09-10>
  ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 0.5pt have occurred.
+
 Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 7DC57E19866CF37A33F5399B3243911D;591.
  ) 
 Here is how much of TeX's memory you used:
- 12522 strings out of 474693
- 196316 string characters out of 5752693
- 631147 words of memory out of 5000000
- 34943 multiletter control sequences out of 15000+600000
- 588113 words of font info for 134 fonts, out of 8000000 for 9000
+ 12591 strings out of 474693
+ 197211 string characters out of 5752693
+ 634400 words of memory out of 5000000
+ 34968 multiletter control sequences out of 15000+600000
+ 590052 words of font info for 160 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 75i,8n,79p,1054b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (3 pages, 929934 bytes).
+ 75i,10n,79p,1944b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt0800.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2024/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on report.pdf (5 pages, 1154641 bytes).
 PDF statistics:
- 110 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
- 14 named destinations out of 1000 (max. 500000)
- 34862 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 139 PDF objects out of 1000 (max. 8388607)
+ 103 compressed objects within 2 object streams
+ 20 named destinations out of 1000 (max. 500000)
+ 35384 words of extra memory for PDF output out of 35830 (max. 10000000)
 
