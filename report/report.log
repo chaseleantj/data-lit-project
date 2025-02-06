@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.21)  6 FEB 2025 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.21)  6 FEB 2025 13:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -425,49 +425,40 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-
-Underfull \vbox (badness 1028) has occurred while \output is active []
-
- [1
+[1
 
 
 {C:/Users/Finn der Zocker/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc}]
 <figs/subscriber.png, id=42, 783.92876pt x 592.2125pt>
 File: figs/subscriber.png Graphic file (type png)
 <use figs/subscriber.png>
-Package pdftex.def Info: figs/subscriber.png  used on input line 91.
+Package pdftex.def Info: figs/subscriber.png  used on input line 88.
 (pdftex.def)             Requested size: 266.31421pt x 201.18692pt.
 
-Underfull \hbox (badness 1281) in paragraph at lines 96--96
+Underfull \hbox (badness 1281) in paragraph at lines 93--93
 \T1/ptm/m/n/10 (+20) are sim-i-lar for all eight
  []
 
-
-Underfull \vbox (badness 3189) has occurred while \output is active []
-
- [2 <./figs/subscriber.png>]
+[2 <./figs/subscriber.png>]
 <figs/lr.png, id=58, 1965.3425pt x 993.7125pt>
 File: figs/lr.png Graphic file (type png)
 <use figs/lr.png>
-Package pdftex.def Info: figs/lr.png  used on input line 116.
+Package pdftex.def Info: figs/lr.png  used on input line 113.
 (pdftex.def)             Requested size: 397.48499pt x 200.96791pt.
 <figs/faces-and-hue.png, id=59, 991.705pt x 792.9625pt>
 File: figs/faces-and-hue.png Graphic file (type png)
 <use figs/faces-and-hue.png>
-Package pdftex.def Info: figs/faces-and-hue.png  used on input line 124.
+Package pdftex.def Info: figs/faces-and-hue.png  used on input line 121.
 (pdftex.def)             Requested size: 266.31421pt x 212.94116pt.
 
-Underfull \hbox (badness 1616) in paragraph at lines 129--129
+Underfull \hbox (badness 1616) in paragraph at lines 126--126
 \T1/ptm/m/n/10 (+20) ber of sam-ples per hue
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 129--129
+Underfull \hbox (badness 1953) in paragraph at lines 126--126
 \T1/ptm/m/n/10 (+20) 3,079; 120-180: 3,681;
  []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -496,15 +487,15 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: 7DC57E19866CF37A33F5399B3243911D;591.
  ) 
 Here is how much of TeX's memory you used:
- 12473 strings out of 474461
- 200848 string characters out of 5738106
+ 12470 strings out of 474461
+ 200824 string characters out of 5738106
  1939998 words of memory out of 5000000
  34435 multiletter control sequences out of 15000+600000
- 589989 words of font info for 159 fonts, out of 8000000 for 9000
+ 589859 words of font info for 157 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,1968b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,1968b,449s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\Finn der Zocker\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Finn der Zocker\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ectt0800.pk><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Finn der Zocker/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on report.pdf (5 pages, 1127018 bytes).
+Output written on report.pdf (5 pages, 1126604 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  21 named destinations out of 1000 (max. 500000)
