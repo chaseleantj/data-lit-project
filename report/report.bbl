@@ -6,16 +6,27 @@
 \newblock \url{https://developers.google.com/youtube/v3/docs}.
 
 \bibitem{youtube-stats}
-\url{https://www.marketingscoop.com/marketing/how-many-hours-of-video-are-uploaded-to-youtube-every-minute/}.
+Michael Smith.
+\newblock {How Many Hours of Video Are Uploaded to YouTube Every Minute?}
+\newblock
+  \url{https://www.marketingscoop.com/marketing/how-many-hours-of-video-are-uploaded-to-youtube-every-minute/},
+  Nov 2024.
+
+\bibitem{YouTubeThumbnail}
+YouTube.
+\newblock {Thumbnail and title tips}.
+\newblock \url{https://support.google.com/youtube/answer/12340300}.
 
 \bibitem{serengil2024lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
-\newblock A benchmark of facial recognition pipelines and co-usability performances of modules.
+\newblock A benchmark of facial recognition pipelines and co-usability
+  performances of modules.
 \newblock {\em Bilisim Teknolojileri Dergisi}, 17(2):95--107, 2024.
 
 \bibitem{serengil2020lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
 \newblock Lightface: A hybrid deep face recognition framework.
-\newblock In {\em 2020 Innovations in Intelligent Systems and Applications Conference (ASYU)}, pages 23--27. IEEE, 2020.
+\newblock In {\em 2020 Innovations in Intelligent Systems and Applications
+  Conference (ASYU)}, pages 23--27. IEEE, 2020.
 
 \end{thebibliography}
