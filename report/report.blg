@@ -9,45 +9,45 @@ Warning--entry type for "youtube-stats" isn't style-file defined
 --line 13 of file bibliography.bib
 Warning--entry type for "YouTubeThumbnail" isn't style-file defined
 --line 35 of file bibliography.bib
-You've used 5 entries,
+You've used 6 entries,
             1791 wiz_defined-function locations,
-            475 strings with 4321 characters,
-and the built_in function-call counts, 946 in all, are:
-= -- 84
-> -- 28
+            480 strings with 4406 characters,
+and the built_in function-call counts, 1075 in all, are:
+= -- 95
+> -- 32
 < -- 1
-+ -- 12
-- -- 7
-* -- 37
-:= -- 144
-add.period$ -- 16
-call.type$ -- 5
-change.case$ -- 5
++ -- 14
+- -- 8
+* -- 40
+:= -- 168
+add.period$ -- 19
+call.type$ -- 6
+change.case$ -- 6
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 43
-empty$ -- 113
-format.name$ -- 7
-if$ -- 227
+cite$ -- 6
+duplicate$ -- 51
+empty$ -- 127
+format.name$ -- 8
+if$ -- 255
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 2
-newline$ -- 28
-num.names$ -- 5
-pop$ -- 23
+int.to.str$ -- 6
+missing$ -- 3
+newline$ -- 33
+num.names$ -- 6
+pop$ -- 26
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 29
+skip$ -- 32
 stack$ -- 0
 substring$ -- 38
-swap$ -- 13
+swap$ -- 14
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 8
-width$ -- 6
-write$ -- 53
+while$ -- 9
+width$ -- 7
+write$ -- 63
 (There were 2 warnings)

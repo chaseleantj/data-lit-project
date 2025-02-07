@@ -17,6 +17,11 @@ YouTube.
 \newblock {Thumbnail and title tips}.
 \newblock \url{https://support.google.com/youtube/answer/12340300}.
 
+\bibitem{opencv_library}
+G.~Bradski.
+\newblock {The OpenCV Library}.
+\newblock {\em Dr. Dobb's Journal of Software Tools}, 2000.
+
 \bibitem{serengil2024lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
 \newblock A benchmark of facial recognition pipelines and co-usability
