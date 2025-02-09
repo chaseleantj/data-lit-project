@@ -1,51 +1,55 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
+This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: report.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: unsrt.bst
+Reallocating 'name_of_file' (item size: 1) to 13 items.
 Database file #1: bibliography.bib
 Warning--entry type for "youtube-stats" isn't style-file defined
 --line 13 of file bibliography.bib
 Warning--entry type for "YouTubeThumbnail" isn't style-file defined
 --line 35 of file bibliography.bib
-You've used 9 entries,
+Warning--entry type for "colorquantization" isn't style-file defined
+--line 243 of file bibliography.bib
+You've used 10 entries,
             1791 wiz_defined-function locations,
-            500 strings with 4829 characters,
-and the built_in function-call counts, 1844 in all, are:
-= -- 163
-> -- 54
+            504 strings with 4929 characters,
+and the built_in function-call counts, 1946 in all, are:
+= -- 171
+> -- 55
 < -- 3
-+ -- 23
++ -- 24
 - -- 14
 * -- 88
-:= -- 276
-add.period$ -- 28
-call.type$ -- 9
-change.case$ -- 8
+:= -- 287
+add.period$ -- 30
+call.type$ -- 10
+change.case$ -- 9
 chr.to.int$ -- 0
-cite$ -- 9
-duplicate$ -- 91
-empty$ -- 211
+cite$ -- 10
+duplicate$ -- 96
+empty$ -- 229
 format.name$ -- 14
-if$ -- 438
+if$ -- 465
 int.to.chr$ -- 0
-int.to.str$ -- 9
+int.to.str$ -- 10
 missing$ -- 7
-newline$ -- 48
+newline$ -- 52
 num.names$ -- 9
-pop$ -- 39
+pop$ -- 45
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 54
+skip$ -- 59
 stack$ -- 0
 substring$ -- 96
-swap$ -- 28
+swap$ -- 29
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
 while$ -- 15
-width$ -- 10
-write$ -- 96
-(There were 2 warnings)
+width$ -- 12
+write$ -- 103
+(There were 3 warnings)
