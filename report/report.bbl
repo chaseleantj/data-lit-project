@@ -8,30 +8,41 @@
 \bibitem{youtube-stats}
 Michael Smith.
 \newblock {How Many Hours of Video Are Uploaded to YouTube Every Minute?}
-\newblock
-  \url{https://www.marketingscoop.com/marketing/how-many-hours-of-video-are-uploaded-to-youtube-every-minute/},
-  Nov 2024.
+\newblock \url{https://www.marketingscoop.com/marketing/how-many-hours-of-video-are-uploaded-to-youtube-every-minute/}, Nov 2024.
 
 \bibitem{YouTubeThumbnail}
 YouTube.
 \newblock {Thumbnail and title tips}.
 \newblock \url{https://support.google.com/youtube/answer/12340300}.
 
+\bibitem{HSL}
+Max~K. Agoston.
+\newblock {\em Computer Graphics and Geometric Modeling}.
+\newblock Springer, 2005.
+
 \bibitem{opencv_library}
 G.~Bradski.
 \newblock {The OpenCV Library}.
 \newblock {\em Dr. Dobb's Journal of Software Tools}, 2000.
 
+\bibitem{contrast}
+Eli Peli.
+\newblock Contrast in complex images.
+\newblock {\em Journal of the Optical Society of America}, 7(10):2032, Oct 1990.
+
+\bibitem{sharpness}
+J.L. Pech-Pacheco, G.~Cristobal, J.~Chamorro-Martinez, and J.~Fernandez-Valdivia.
+\newblock Diatom autofocusing in brightfield microscopy: a comparative study.
+\newblock In {\em Proceedings 15th International Conference on Pattern Recognition. ICPR-2000}, volume~3, pages 314--317 vol.3, 2000.
+
 \bibitem{serengil2024lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
-\newblock A benchmark of facial recognition pipelines and co-usability
-  performances of modules.
+\newblock A benchmark of facial recognition pipelines and co-usability performances of modules.
 \newblock {\em Bilisim Teknolojileri Dergisi}, 17(2):95--107, 2024.
 
 \bibitem{serengil2020lightface}
 Sefik~Ilkin Serengil and Alper Ozpinar.
 \newblock Lightface: A hybrid deep face recognition framework.
-\newblock In {\em 2020 Innovations in Intelligent Systems and Applications
-  Conference (ASYU)}, pages 23--27. IEEE, 2020.
+\newblock In {\em 2020 Innovations in Intelligent Systems and Applications Conference (ASYU)}, pages 23--27. IEEE, 2020.
 
 \end{thebibliography}

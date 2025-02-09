@@ -8,26 +8,32 @@
 \citation{youtubeapi}
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2}Methods}{1}{section.2}\protected@file@percent }
+\citation{HSL}
 \citation{opencv_library}
+\citation{contrast}
+\citation{sharpness}
 \citation{serengil2024lightface,serengil2020lightface}
-\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Linear regression (LR) of the log view count against the log subscriber count. The relationships are similar for all eight video categories. For the combined dataset, the relationship is $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \log  (N_i)$}\mathaccent "0362{\log  (N_i)} = \hat  {\beta }_0 + \hat  {\beta }_1 \cdot \log  (S_i)$, 95\% CI for $\beta _0$ is $[3.445, 3.571]$, 95\% CI for $\beta _1$ is $[0.663, 0.673]$, $R^2 = 0.467$.}}{2}{figure.1}\protected@file@percent }
-\newlabel{fig:subscriber}{{1}{2}{Linear regression (LR) of the log view count against the log subscriber count. The relationships are similar for all eight video categories. For the combined dataset, the relationship is $\widehat {\log (N_i)} = \hat {\beta }_0 + \hat {\beta }_1 \cdot \log (S_i)$, 95\% CI for $\beta _0$ is $[3.445, 3.571]$, 95\% CI for $\beta _1$ is $[0.663, 0.673]$, $R^2 = 0.467$}{figure.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{3}{section.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Linear regression results for the log view count (top) and the residual log view count (bottom) against the four features saturation, lightness, contrast, and sharpness, respectively, based on the entire dataset.}}{3}{figure.2}\protected@file@percent }
-\newlabel{fig:lr}{{2}{3}{Linear regression results for the log view count (top) and the residual log view count (bottom) against the four features saturation, lightness, contrast, and sharpness, respectively, based on the entire dataset}{figure.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 95\% CIs of the log view count and residual log view count for each face and hue category, as previously defined. The color of each hue boxplot was chosen according to the central hue of the corresponding bin.}}{3}{figure.3}\protected@file@percent }
-\newlabel{fig:faces-and-hue}{{3}{3}{95\% CIs of the log view count and residual log view count for each face and hue category, as previously defined. The color of each hue boxplot was chosen according to the central hue of the corresponding bin}{figure.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Linear regression (LR) of the log view count ($\log  {(N_i)}$) against the log subscriber count ($\log  {(S_i)}$) across the eight video categories. The relationships are consistent across categories. For the combined dataset, the relationship is given: $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle \log  (N_i)$}\mathaccent "0362{\log  (N_i)} = \hat  {\beta }_0 + \hat  {\beta }_1 \cdot \log  (S_i)$, with 95\% confidence intervals (CI) for $\beta _0$ as $[3.445, 3.571]$, for $\beta _1$ as $[0.663, 0.673]$, and $R^2 = 0.467$.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:subscriber}{{1}{2}{Linear regression (LR) of the log view count ($\log {(N_i)}$) against the log subscriber count ($\log {(S_i)}$) across the eight video categories. The relationships are consistent across categories. For the combined dataset, the relationship is given: $\widehat {\log (N_i)} = \hat {\beta }_0 + \hat {\beta }_1 \cdot \log (S_i)$, with 95\% confidence intervals (CI) for $\beta _0$ as $[3.445, 3.571]$, for $\beta _1$ as $[0.663, 0.673]$, and $R^2 = 0.467$}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3}Results}{2}{section.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Linear regression results for the log view count (top) and the residual log view count (bottom) against the four features: saturation, lightness, contrast, and sharpness, respectively, across the entire dataset.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:lr}{{2}{3}{Linear regression results for the log view count (top) and the residual log view count (bottom) against the four features: saturation, lightness, contrast, and sharpness, respectively, across the entire dataset}{figure.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces 95\% CIs of the log view count (top) and residual log view count (bottom) for different face and hue categories. The hue boxplot colors correspond to the central hue of each bin, and marker sizes are proportional to the sample size.}}{3}{figure.3}\protected@file@percent }
+\newlabel{fig:faces-and-hue}{{3}{3}{95\% CIs of the log view count (top) and residual log view count (bottom) for different face and hue categories. The hue boxplot colors correspond to the central hue of each bin, and marker sizes are proportional to the sample size}{figure.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 95\% coefficient CI and $p$-value for each feature in the two multiple linear regression models. $R^2 = 0.055$ (log view count) and $R^2 = 0.006$ (residual log view count).}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:regression}{{1}{3}{95\% coefficient CI and $p$-value for each feature in the two multiple linear regression models. $R^2 = 0.055$ (log view count) and $R^2 = 0.006$ (residual log view count)}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion/Limitations}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}Statement of Contributions}{4}{section.5}\protected@file@percent }
 \bibstyle{unsrt}
 \bibdata{bibliography}
 \bibcite{youtubeapi}{{1}{}{{}}{{}}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces 95\% coefficient CI and $p$-value for each feature in the two multiple linear regression models. $R^2 = 0.055$ (log view count) and $R^2 = 0.006$ (residual log view count).}}{4}{table.1}\protected@file@percent }
-\newlabel{tab:regression}{{1}{4}{95\% coefficient CI and $p$-value for each feature in the two multiple linear regression models. $R^2 = 0.055$ (log view count) and $R^2 = 0.006$ (residual log view count)}{table.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Discussion/Limitations}{4}{section.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {5}Statement of Contributions}{4}{section.5}\protected@file@percent }
 \bibcite{youtube-stats}{{2}{}{{}}{{}}}
 \bibcite{YouTubeThumbnail}{{3}{}{{}}{{}}}
-\bibcite{opencv_library}{{4}{}{{}}{{}}}
-\bibcite{serengil2024lightface}{{5}{}{{}}{{}}}
-\bibcite{serengil2020lightface}{{6}{}{{}}{{}}}
+\bibcite{HSL}{{4}{}{{}}{{}}}
+\bibcite{opencv_library}{{5}{}{{}}{{}}}
+\bibcite{contrast}{{6}{}{{}}{{}}}
+\bibcite{sharpness}{{7}{}{{}}{{}}}
+\bibcite{serengil2024lightface}{{8}{}{{}}{{}}}
+\bibcite{serengil2020lightface}{{9}{}{{}}{{}}}
 \providecommand\NAT@force@numbers{}\NAT@force@numbers
 \gdef \@abspage@last{5}
