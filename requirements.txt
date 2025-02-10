@@ -6,7 +6,19 @@ jupyter
 matplotlib
 scikit-learn
 opencv-python
+# required for text detection
+# tessaract for all languages should be installed beforehand:
+#sudo apt install tesseract-ocr-all or conda install conda-forge::tesseract
+tensorflow==2.15
+tf-keras==2.15.0
+keras==2.15
+keras-ocr
+easyocr
+pytesseract
+pycountry
+langdetect
+transformers
+# required for faces detection
 deepface
 tf-keras # required for deepface
 tensorrt # required for deepface
-easyocr
